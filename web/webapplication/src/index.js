@@ -4,8 +4,8 @@ import App from './App';
 import {createStore} from 'redux';
 import reducers from './reducers';
 import {Provider} from 'react-redux';
-// import {Router, Route, browserHistory} from 'react-router';
-import {BrowserRouter as Router, Link, Match, Miss} from 'react-router';
+// import {BrowserRouter as Router, Link, Match, Miss} from 'react-router';
+import {BrowserRouter as Router, Match} from 'react-router';
 
 const store = createStore(reducers);
 

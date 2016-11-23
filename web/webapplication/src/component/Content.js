@@ -14,9 +14,9 @@ class Content extends Component {
                     <div className="col-sm-12 text-center">
                         <br/>
                         <div className="carousel">
-                            <Carousel className="carousel2">
+                            <Carousel className="carousel2" style={{height:100,width:"100%",backgroundColor:"skyblue"}}>
                                 <Carousel.Item
-                                    active={true}>
+                                    active={true} >
                                     <p>오늘날씨</p>
                                 </Carousel.Item>
                                 <Carousel.Item >

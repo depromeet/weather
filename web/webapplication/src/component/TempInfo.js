@@ -7,7 +7,7 @@ import React, {Component} from 'react';
 class TempInfo extends Component {
     render() {
         return (
-            <div className="TempInfo">
+            <div>
                 온도정보
             </div>
         );

@@ -1,6 +1,7 @@
 .Header{
-    position: fixed;
+    position: relative;
     max-width: 100%;
+    top:0;
 }
 .TempInfo{
     position: absolute;
@@ -13,11 +14,11 @@
     /*width:100%;*/
     z-index:-1;
     padding: 250px;
-
 }
 .Content{
+    position: absolute;
     background-color: #7fdbff;
-    top: 100px;
+    bottom:0;
     max-width:100%;
     padding:100px;
 }

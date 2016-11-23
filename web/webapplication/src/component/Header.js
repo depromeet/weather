@@ -8,9 +8,17 @@ import Avatar from './Avatar'
 class Header extends Component {
     render() {
         return (
-            <div className="Header">
-                <TempInfo/>
-                <Avatar/>
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="col-sm-12 text-left">
+                        <TempInfo/>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-sm-12 text-center">
+                        <Avatar/>
+                    </div>
+                </div>
             </div>
         );
     }

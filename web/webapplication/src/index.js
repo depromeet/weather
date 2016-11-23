@@ -10,7 +10,6 @@ import {BrowserRouter as Router, Match} from 'react-router';
 const store = createStore(reducers);
 
 const root = document.getElementById('root');
-
 ReactDOM.render(
     <Provider store={store}>
         <Router>

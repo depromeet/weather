@@ -7,7 +7,7 @@ import '../css/App.css'
 class Avatar extends Component {
     render() {
         return (
-            <div className="Avatar">
+            <div>
                 아바타
             </div>
         );

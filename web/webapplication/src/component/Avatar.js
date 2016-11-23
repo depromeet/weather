@@ -4,7 +4,8 @@
 import React, {Component} from 'react';
 import '../css/App.css'
 import imgsrc from '../images/test_avatar.jpg'
-import {Modal} from 'react-bootstrap'
+import {Modal,Button,Checkbox} from 'react-bootstrap'
+
 
 class Avatar extends Component {
 
@@ -39,8 +40,37 @@ class Avatar extends Component {
                         <Modal.Title>투표</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <h4>투표하기</h4>
+                      <Checkbox inline>
+                        <p>1. 패딩날씨</p>
+                        <img src={imgsrc} className="img-responsive center-block" alt="아바타" width="500"/>
+
+                      </Checkbox>
+                      {' '}
+                      <Checkbox inline>
+                        <p>2. 코트날씨</p>
+                        <img src={imgsrc} className="img-responsive center-block" alt="아바타" width="500"/>
+
+                      </Checkbox>
+                      {' '}
+                      <Checkbox inline>
+                        <p>3. 스웨터날씨</p>
+                        <img src={imgsrc} className="img-responsive center-block" alt="아바타" width="500"/>
+
+                      </Checkbox>
+                      <Checkbox inline>
+                        <p>4. 반팔날씨</p>
+                        <img src={imgsrc} className="img-responsive center-block" alt="아바타" width="500"/>
+
+                      </Checkbox>
+                      <Checkbox inline>
+                        <p>5. 목티날씨</p>
+                        <img src={imgsrc} className="img-responsive center-block" alt="아바타" width="500"/>
+
+                      </Checkbox>
                     </Modal.Body>
+                    <Modal.Footer>
+                      <Button type="submit" onClick={this.close} >Submit</Button>
+                    </Modal.Footer>
                 </Modal>
                 아바타
             </div>

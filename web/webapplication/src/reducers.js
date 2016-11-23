@@ -3,9 +3,10 @@
  */
 import {combineReducers} from 'redux';
 import avatar from './reducer/avatar';
+import weather from './reducer/weather';
 
 const reducers = combineReducers({
-    avatar
+    avatar, weather
 });
 
 export default reducers;

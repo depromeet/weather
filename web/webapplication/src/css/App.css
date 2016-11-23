@@ -1,24 +1,11 @@
-.Header{
-    position: relative;
-    max-width: 100%;
-    top:0;
-}
-.TempInfo{
-    position: absolute;
-    background-color: #7f7f7f;
-}
-.Avatar{
-    /*position: relative;*/
-    position: absolute;
-    background-color: #01ff70;
-    /*width:100%;*/
-    z-index:-1;
-    padding: 250px;
-}
-.Content{
-    position: absolute;
-    background-color: #7fdbff;
+.container {
+    width:70%;
+    height: 200px;;
     bottom:0;
-    max-width:100%;
-    padding:100px;
+    margin:auto;
+}
+.carousel2{
+    width:70%;
+    margin:auto;
+    background-color: aliceblue;
 }

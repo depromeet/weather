@@ -6,6 +6,13 @@ import reducers from './reducers';
 import {Provider} from 'react-redux';
 // import {BrowserRouter as Router, Link, Match, Miss} from 'react-router';
 import {BrowserRouter as Router, Match} from 'react-router';
+import * as firebase from 'firebase';
+
+const config = {
+
+};
+
+firebase.initializeApp(config);
 
 const store = createStore(reducers);
 

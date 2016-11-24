@@ -5,6 +5,7 @@ import React, {Component} from 'react';
 import '../css/App.css'
 import imgsrc from '../images/test_avatar.jpg'
 import {Modal,Button,Checkbox} from 'react-bootstrap'
+import * as firebase from 'firebase';
 
 
 class Avatar extends Component {
@@ -16,6 +17,11 @@ class Avatar extends Component {
         };
         this.open = this.open.bind(this);
         this.close= this.close.bind(this);
+
+        super();
+        this.state = {
+          statement : "오뎅날씨"
+        };
     }
     close() {
         this.setState({
@@ -26,6 +32,18 @@ class Avatar extends Component {
         this.setState({
             showModal: true
         });
+    }
+
+    componentDidMount(){
+      const rootRef = firebase.database().ref().child('weather');
+      const statementRef = rootRef.child('statement');
+      
+
+      statementRef.on('value',snap => {
+        this.setState({
+          statement :snap.val()
+        });
+      });
     }
 
     render() {
@@ -41,32 +59,19 @@ class Avatar extends Component {
                     </Modal.Header>
                     <Modal.Body>
                       <Checkbox inline>
-                        <p>1. 패딩날씨</p>
+
+                        1.<p> {this.state.statement}</p>
                         <img src={imgsrc} className="img-responsive center-block" alt="아바타" width="500"/>
 
                       </Checkbox>
                       {' '}
                       <Checkbox inline>
-                        <p>2. 코트날씨</p>
+                        2.<p> 코트날씨</p>
                         <img src={imgsrc} className="img-responsive center-block" alt="아바타" width="500"/>
 
                       </Checkbox>
                       {' '}
-                      <Checkbox inline>
-                        <p>3. 스웨터날씨</p>
-                        <img src={imgsrc} className="img-responsive center-block" alt="아바타" width="500"/>
 
-                      </Checkbox>
-                      <Checkbox inline>
-                        <p>4. 반팔날씨</p>
-                        <img src={imgsrc} className="img-responsive center-block" alt="아바타" width="500"/>
-
-                      </Checkbox>
-                      <Checkbox inline>
-                        <p>5. 목티날씨</p>
-                        <img src={imgsrc} className="img-responsive center-block" alt="아바타" width="500"/>
-
-                      </Checkbox>
                     </Modal.Body>
                     <Modal.Footer>
                       <Button type="submit" onClick={this.close} >Submit</Button>

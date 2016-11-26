@@ -9,6 +9,12 @@ const initialState = {
 
     //현재온도
     current_temp: '통신에러',
+
+    //풍속
+    wind:'통신에러',
+    
+    //체감온도
+    body_temp:'통신에러',
 };
 
 export default function weather (state = initialState, action) {
@@ -17,7 +23,10 @@ export default function weather (state = initialState, action) {
             return {
                 ...state,
                 current_temp: action.current_temp,
-                location:action.location
+                location:action.location,
+                wind : action.wind,
+                body_temp: action.body_temp
+
             };
         default:
             return state;

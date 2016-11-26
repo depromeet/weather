@@ -9,29 +9,27 @@ class Content extends Component {
 
     render() {
         return (
-            <div className="container">
-                <div className="row">
-                    <div className="col-sm-12 text-center">
-                        <br/>
-                        <div className="carousel">
-                            <Carousel className="carousel2" style={{height:100,width:"100%",backgroundColor:"skyblue"}}>
-                                <Carousel.Item
-                                    active={true} >
-                                    <p>오늘날씨</p>
-                                </Carousel.Item>
-                                <Carousel.Item >
-                                    <p>내일날씨</p>
-                                </Carousel.Item>
-                                <Carousel.Item >
-                                    <p>이번주날씨</p>
-                                </Carousel.Item>
-                            </Carousel>
-                        </div>
-                    </div>
-                </div>
+            <div className="carousel">
+                <Carousel className="carousel2">
+                    <Carousel.Item
+                        active={true}>
+                        <p
+                            className="carouselItem"
+                        >오늘날씨</p>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <p
+                            className="carouselItem"
+                        >내일날씨</p>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <p
+                            className="carouselItem"
+                        >이번주날씨</p>
+                    </Carousel.Item>
+                </Carousel>
             </div>
         );
     }
 }
-
 export default Content;

@@ -14,4 +14,9 @@ build
 .env
 npm-debug.log
 .idea/*
-db.js
+
+#img 들
+
+22.png
+back_test.jpg
+back_avatar.jpg

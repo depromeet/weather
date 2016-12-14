@@ -1,14 +1,16 @@
 .App{
-    background-color: aliceblue;
+    opacity:0.8;
 }
 .carouselItem{
     height:auto;
     width:100%;
     text-align: center;
 }
+.TempInform{
+    opacity:0.8;
+}
 .TempInform > p{
     font-size: 12pt;
-    opacity:0.3;
 }
 .avatarImg:hover{
     border:solid black;
@@ -23,12 +25,18 @@
 .carousel2 {
     height: 100px;
     width: 100%;
-    background-color:aliceblue;
     top:50px;
 }
 html{
-    background-image: url("../images/back_test.jpg");
+    background-image: url("../images/back_test.png");
     background-repeat: no-repeat;
     background-size:cover;
-    opacity:0.8;
+    z-index: -1;
+}
+.backimage{
+    z-index: +1;
+    background-color: red;
+}
+
+.Headerr{
 }

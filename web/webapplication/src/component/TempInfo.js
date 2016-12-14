@@ -1,32 +1,57 @@
 /**
  * Created by youngil on 2016-11-21.
  */
-
 import React, {Component} from 'react';
 import $ from 'jquery';
 import {connect} from 'react-redux';
 import * as actions from '../actions/index';
+import styles from '../css/App.css'
 
 class TempInfo extends Component {
-
+    
+    constructor(props){
+        super(props);
+        this.getGeo = this.getGeo.bind(this);
+        this.succes = this.succes.bind(this)
+    }
+    
     componentWillMount() {
         //마운트되면 ajax호출
         this.props.getCurrentWeather();
-
     }
+
     componentDidMount() {
+        console.log('wwww');
         //tobe 60초에 한번씩 호출 추후에 수정예정
         //개발시 주석처리.
         // setInterval(this.props.getCurrentWeather,60*1000);
     }
+
+    getGeo() {
+        navigator.geolocation.getCurrentPosition(this.succes); //현재 위치 정보를 조사하고 성공 실패 했을시 호출되는 함수 설정
+        console.log("위치정보 확인 성공!");
+    }
+    succes(){
+        // for (let property in position.coords) { //반복문 돌면서 출력
+        //     console.log("Key 값:" + property + " 정보:" + position.coords[property]);
+        // }
+    }
     render() {
         return (
             <div
-                className="TempInform"
+                className={styles.TempInform}
             >
-                <h3>현재 온도<small>{this.props.current_temp}</small></h3>
-                <h3>체감온도<small>{Math.round(this.props.body_temp)}</small></h3>
-                <h3>위치<small>{this.props.location}</small></h3>
+                <h3
+                    onClick={this.getGeo}
+                >현재 온도
+                    <small>{this.props.current_temp}</small>
+                </h3>
+                <h3>체감온도
+                    <small>{Math.round(this.props.body_temp)}</small>
+                </h3>
+                <h3>위치
+                    <small>{this.props.location}</small>
+                </h3>
             </div>
         );
     }

@@ -3,18 +3,18 @@
  */
 import React, {Component} from 'react';
 import '../css/App.css'
-import imgsrc from '../images/test_avatar.jpg'
+// import imgsrc from '../images/test_avatar.jpg'
+import imgsrc from '../images/test_avatar.png'
 import {Modal, Button, Checkbox} from 'react-bootstrap'
 import * as firebase from 'firebase';
-
-
 class Avatar extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
             showModal: false
         };
+
+
         this.open = this.open.bind(this);
         this.close = this.close.bind(this);
 
@@ -52,8 +52,8 @@ class Avatar extends Component {
         // console.log(this.state.showModal);
         return (
             <div>
-                <img onClick={this.open} src={imgsrc} className="img-responsive img-circle center-block avatarImg" alt="아바타"
-                     width="500"/>
+                <img onClick={this.open} src={imgsrc} className="img-responsive center-block avatarImg" alt="아바타"
+                     width="500" height="300"/>
                 <Modal show={this.state.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
                         <Modal.Title>투표</Modal.Title>

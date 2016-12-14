@@ -9,7 +9,6 @@ import {BrowserRouter as Router, Match} from 'react-router';
 import * as firebase from 'firebase';
 
 const config = {
-
 };
 
 firebase.initializeApp(config);

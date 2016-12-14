@@ -5,6 +5,7 @@ import * as types from './ActionsTypes';
 
 export function showWeather(res){
     const V = Math.pow(res.weather.minutely[0]['wind'].wspd, 0.16);
+
     return {
         type:types.CURRENT_TEMP,
         //현재온도

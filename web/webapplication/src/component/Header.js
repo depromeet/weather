@@ -4,15 +4,15 @@
 import React, {Component} from 'react';
 import TempInfo from './TempInfo'
 import Avatar from './Avatar'
+import styles from '../css/App.css'
 
 class Header extends Component {
     render() {
         return (
-            <div>
+            <div className={styles.Headerr}>
                 <TempInfo/>
                 <Avatar/>
             </div>
-
         );
     }
 }

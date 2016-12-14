@@ -1,42 +1,43 @@
-.App{
-    opacity:0.8;
+.App {
+    opacity: 0.8;
 }
-.carouselItem{
-    height:auto;
-    width:100%;
+
+.carouselItem {
+    height: auto;
+    width: 100%;
     text-align: center;
 }
-.TempInform{
-    opacity:0.8;
+
+.TempInform {
+    opacity: 0.8;
 }
-.TempInform > p{
+
+.TempInform > p {
     font-size: 12pt;
 }
-.avatarImg:hover{
-    border:solid black;
+
+.avatarImg:hover {
+    border: solid black;
     cursor: pointer;
 }
 
-@media (min-width:700px){
+@media (min-width: 700px) {
     .TempInform > p {
-        font-size:24pt;
+        font-size: 24pt;
     }
 }
+
 .carousel2 {
     height: 100px;
     width: 100%;
-    top:50px;
-}
-html{
-    background-image: url("../images/back_test.png");
-    background-repeat: no-repeat;
-    background-size:cover;
-    z-index: -1;
-}
-.backimage{
-    z-index: +1;
-    background-color: red;
+    top: 50px;
 }
 
-.Headerr{
+html {
+    background-image: url("../images/back_test.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(255, 255, 255, 0.6);
+    background-blend-mode: lighten;
+
 }

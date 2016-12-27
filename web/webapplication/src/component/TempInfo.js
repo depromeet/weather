@@ -12,7 +12,6 @@ class TempInfo extends Component {
     constructor(props){
         super(props);
         this.getGeo = this.getGeo.bind(this);
-        this.succes = this.succes.bind(this)
     }
     
     componentWillMount() {
@@ -25,24 +24,29 @@ class TempInfo extends Component {
         //tobe 60초에 한번씩 호출 추후에 수정예정
         //개발시 주석처리.
         // setInterval(this.props.getCurrentWeather,60*1000);
+        this.getGeo()
     }
 
     getGeo() {
-        navigator.geolocation.getCurrentPosition(this.succes); //현재 위치 정보를 조사하고 성공 실패 했을시 호출되는 함수 설정
+        navigator.geolocation.getCurrentPosition((position)=>{
+            this.succes(position);
+        }); //현재 위치 정보를 조사하고 성공 실패 했을시 호출되는 함수 설정
         console.log("위치정보 확인 성공!");
     }
-    succes(){
-        // for (let property in position.coords) { //반복문 돌면서 출력
-        //     console.log("Key 값:" + property + " 정보:" + position.coords[property]);
-        // }
+    succes(position){
+        for (let property in position.coords) { //반복문 돌면서 출력
+            console.log("Key 값:" + property + " 정보:" + position.coords[property]);
+        }
+        this.props.getCurrentWeather(position.coords['latitude']);
     }
     render() {
         return (
             <div
                 className={styles.TempInform}
             >
+                <button onClick={this.getGeo}>위치확인 (미완성)
+                </button>
                 <h3
-                    onClick={this.getGeo}
                 >현재 온도
                     <small>{this.props.current_temp}</small>
                 </h3>
@@ -66,7 +70,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
     return {
-        getCurrentWeather: () => {
+        getCurrentWeather: (latitude ) => {
             $.ajax({
                 url: 'http://apis.skplanetx.com/weather/current/minutely',
                 type: 'GET',
@@ -75,7 +79,8 @@ const mapDispatchToProps = (dispatch) => {
                     //API 버전 정보
                     version: "1",
                     //위도로 날씨정보 검색
-                    lat: "37.5714000000",
+                    // lat: "37.5714000000",
+                    lat: latitude,
                     //주소로 날씨정보 검색
                     // -시(특별, 광역), 도
                     city: "서울",

@@ -34,9 +34,10 @@ class TempInfo extends Component {
         console.log("위치정보 확인 성공!");
     }
     succes(position){
-        for (let property in position.coords) { //반복문 돌면서 출력
-            console.log("Key 값:" + property + " 정보:" + position.coords[property]);
-        }
+        // for (let property in position.coords) { //반복문 돌면서 출력
+        //     console.log("Key 값:" + property + " 정보:" + position.coords[property]);
+        // }
+        console.log(position);
         this.props.getCurrentWeather(position.coords['latitude']);
     }
     render() {
@@ -44,7 +45,7 @@ class TempInfo extends Component {
             <div
                 className={styles.TempInform}
             >
-                <button onClick={this.getGeo}>위치확인 (미완성)
+                <button onClick={this.getGeo}>위치확인 (click!)
                 </button>
                 <h3
                 >현재 온도
@@ -89,6 +90,7 @@ const mapDispatchToProps = (dispatch) => {
                     //tobe appkey가 노출되어있음. 다른방식으로세팅해야할듯.
                     appKey: "08c49bca-1e76-3ff9-a0d3-ab47a5b87ba1"
                 },
+
                 success: function (res) {
                     console.log('응답', res);
                     console.log('요청 위치', res.weather.minutely[0]['station']['name']);

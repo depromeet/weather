@@ -6,6 +6,7 @@ import TempInfo from './TempInfo'
 
 class Header extends Component {
     render() {
+        // let de = d3.select("body").append("div").text("새로운 문장");
         return (
             <div>
                 <TempInfo/>
@@ -13,5 +14,4 @@ class Header extends Component {
         );
     }
 }
-
 export default Header;

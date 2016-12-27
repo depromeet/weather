@@ -41,17 +41,17 @@ class Avatar extends Component {
         });
     }
 
-    getInitialState() {
-        const rootRef = firebase.database().ref().child('weather');
-        const statementRef = rootRef.child('statement');
-
-
-        statementRef.on('value', snap => {
-            this.setState({
-                statement: snap.val()
-            });
-        });
-    }
+    // getInitialState() {
+    //     const rootRef = firebase.database().ref().child('weather');
+    //     const statementRef = rootRef.child('statement');
+    //
+    //
+    //     statementRef.on('value', snap => {
+    //         this.setState({
+    //             statement: snap.val()
+    //         });
+    //     });
+    // }
 
     render() {
         // console.log(this.state.showModal);

@@ -2,8 +2,6 @@
  * Created by youngil on 2016-11-21.
  */
 
-import * as types from '../actions/ActionsTypes';
-
 const initialState = {
     //얼굴표정
     face:{
@@ -21,10 +19,10 @@ const initialState = {
 export default function avatar(state = initialState, action) {
     console.log('in the reducer avatar: ', action);
     switch (action.type) {
-        case types.INCREMENT:
+        case 'CURRENT_TEMP':
             return {
                 ...state,
-                number: state.number + 1,
+                // number: state.number + 1,
             };
         default:
             return state;

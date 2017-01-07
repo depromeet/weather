@@ -12,18 +12,22 @@
     opacity: 0.8;
 }
 
+.TempFont{
+    color:white;
+}
 /*.TempInform > p {*/
-/*font-size: 12pt;*/
+    /*font-size: 12pt;*/
+    /*color:white;*/
 /*}*/
 
 .avatarImg:hover {
     border: solid black;
     cursor: pointer;
 }
-
 @media (min-width: 700px) {
     .TempInform > p {
         font-size: 24pt;
+        color:white;
     }
 }
 
@@ -34,10 +38,19 @@
 
 .weather-inform {
     margin-top: 100px;
+    background-color: grey;
+    opacity:0.6;
 }
 
+.weather-box{
+    opacity:0.8;
+    margin: 20px;
+    background-color: transparent;
+}
 
-
+.TempNum{
+    color: white;
+}
 .carousel-weather {
     margin-left: 200px;
     margin-right: 200px;
@@ -51,7 +64,16 @@
 }
 
 body {
-    background-image: url("../images/back_test.png");
+    background-image: url("../images/web_back_night.png");
     background-repeat: no-repeat;
-    /*background-size: cover;*/
+    background-size: cover;
+}
+#chart .c3-line-data1 {
+    stroke-width: 5px;
+}
+#chart2 .c3-line-data1 {
+    stroke-width: 5px;
+}
+#chart3 .c3-line-data1 {
+    stroke-width: 5px;
 }

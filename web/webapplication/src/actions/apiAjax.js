@@ -11,8 +11,6 @@ $.ajaxSetup({
     }
 });
 
-
-
 export const get_current_weather = (latitude) => {
     return (dispatch) => {
         $.ajax({

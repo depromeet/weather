@@ -55,6 +55,7 @@ class Avatar extends Component {
 
     render() {
         // console.log(this.state.showModal);
+        //아바타모달창에서 투표결과 count
         return (
             <div>
                 <img onClick={this.open} src={imgsrc} className="img-responsive center-block avatarImg" alt="아바타"

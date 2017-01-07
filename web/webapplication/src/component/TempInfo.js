@@ -40,22 +40,36 @@ class TempInfo extends Component {
         this.props.getCurrentWeather(position.coords['latitude']);
     }
     render() {
+        const now = new Date();
+        console.log(now);
+
         return (
             <div
                 className={styles.TempInform}
             >
                 <button onClick={this.getGeo}>위치확인 (click!)
                 </button>
-                <h3
+                <h2
+                    className="TempFont"
                 >현재 온도
-                    <small>{this.props.current_temp}</small>
-                </h3>
-                <h3>체감온도
-                    <small>{Math.round(this.props.body_temp)}</small>
-                </h3>
-                <h3>위치
-                    <small>{this.props.location}</small>
-                </h3>
+                    <small
+                        className="TempNum"
+                    >{this.props.current_temp}</small>
+                </h2>
+                <h2
+                    className="TempFont"
+                >체감온도
+                    <small
+                        className="TempNum"
+                    >{Math.round(this.props.body_temp)}</small>
+                </h2>
+                <h2
+                    className="TempFont"
+                >위치
+                    <small
+                        className="TempNum"
+                    >{this.props.location}</small>
+                </h2>
             </div>
         );
     }

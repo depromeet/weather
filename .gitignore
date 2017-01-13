@@ -20,3 +20,7 @@ npm-debug.log
 22.png
 back_test.jpg
 back_avatar.jpg
+
+#api config
+web/webapplication/src/actions/apiconfig.js
+

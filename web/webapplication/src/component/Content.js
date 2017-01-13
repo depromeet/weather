@@ -11,7 +11,6 @@ class Content extends Component {
     componentDidMount() {
         this._renderChart()
     };
-
     _renderChart() {
         c3.generate({
             bindto: '#chart',
@@ -43,35 +42,43 @@ class Content extends Component {
     }
 
     render() {
-
         return (
-            <div className="weather-inform">
+            <div className="weather-inform"
+            >
                 <div
                     className="weather-box"
                 >
                     <Carousel
                     >
-                        <Carousel.Item>
+                        <Carousel.Item
+                            className="row-bottom col-xs-12"
+                        >
                             <center>
-                                <h2
-                                    className="TempFont"
-                                >오늘날씨</h2>
+
+
+                                <p
+                                    className="h3 TempFont"
+                                >오늘날씨</p>
                                 <div className="carousel-weather" id="chart"></div>
                             </center>
                         </Carousel.Item>
-                        <Carousel.Item>
+                        <Carousel.Item
+                            className="col-xs-12"
+                        >
                             <center>
-                                <h2
-                                    className="TempFont"
-                                >내일날씨</h2>
+                                <p
+                                    className="h3 TempFont"
+                                >내일날씨</p>
                                 <div className="carousel-weather" id="chart2"></div>
                             </center>
                         </Carousel.Item>
-                        <Carousel.Item>
+                        <Carousel.Item
+                            className="col-xs-12"
+                        >
                             <center>
-                                <h2
-                                    className="TempFont"
-                                >이번주날씨</h2>
+                                <p
+                                    className="h3 TempFont"
+                                >이번주날씨</p>
                                 <div className="carousel-weather" id="chart3"></div>
                             </center>
                         </Carousel.Item>

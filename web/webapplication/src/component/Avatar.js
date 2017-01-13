@@ -53,14 +53,19 @@ class Avatar extends Component {
     //     });
     // }
 
+
     render() {
-        // console.log(this.state.showModal);
-        //아바타모달창에서 투표결과 count
         return (
-            <div>
+            <div
+                className="row-middle col-xs-12 "
+            >
+                <div
+                    className="img-container"
+                >
+
                 <img onClick={this.open} src={imgsrc} className="img-responsive center-block avatarImg" alt="아바타"
-                     width={250}
                 />
+                </div>
                 <Modal show={this.state.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
                         <Modal.Title>투표</Modal.Title>
@@ -73,7 +78,7 @@ class Avatar extends Component {
                         {' '}
                         <Checkbox inline>
                             2.<p> {this.state.statement1}</p>
-                          <img src={imgsrc1} className="img-responsive center-block" alt="아바타" width="500"/>
+                            <img src={imgsrc1} className="img-responsive center-block" alt="아바타" width="500"/>
                         </Checkbox>
                         {' '}
                     </Modal.Body>
@@ -83,6 +88,8 @@ class Avatar extends Component {
                 </Modal>
             </div>
         );
+        // console.log(this.state.showModal);
+        //아바타모달창에서 투표결과 count
     }
 }
 

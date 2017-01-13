@@ -9,27 +9,32 @@
 /*}*/
 
 .TempInform {
-    opacity: 0.8;
+    /*opacity: 0.8;*/
+    /*width:30%;*/
 }
 
 .TempFont{
     color:white;
+    font-size:12pt;
 }
 /*.TempInform > p {*/
     /*font-size: 12pt;*/
     /*color:white;*/
 /*}*/
-
+.img-container{
+    width:30%;
+    margin:auto;
+}
 .avatarImg:hover {
     border: solid black;
     cursor: pointer;
 }
-@media (min-width: 700px) {
-    .TempInform > p {
-        font-size: 24pt;
-        color:white;
-    }
-}
+/*@media (min-width: 700px) {*/
+    /*.TempInform > p {*/
+        /*font-size: 24pt;*/
+        /*color:white;*/
+    /*}*/
+/*}*/
 
 .fill-height {
     min-height: 100%;
@@ -37,36 +42,37 @@
 }
 
 .weather-inform {
-    margin-top: 100px;
-    background-color: grey;
-    opacity:0.6;
+    /*margin-top: 100px;*/
+    /*background-color: black;*/
+    /*opacity:0.6;*/
 }
 
 .weather-box{
-    opacity:0.8;
+    /*opacity:0.8;*/
     margin: 20px;
-    background-color: transparent;
+    /*background-color: black;*/
 }
 
 .TempNum{
     color: white;
 }
 .carousel-weather {
-    margin-left: 200px;
-    margin-right: 200px;
+    margin:auto;
+    background-color: black;
 }
 
-@media (max-width: 700px) {
-    .carousel-weather {
-        margin-left: 20px;
-        margin-right: 20px;
-    }
-}
+/*@media (max-width: 700px) {*/
+    /*.carousel-weather {*/
+        /*margin-left: 20px;*/
+        /*margin-right: 20px;*/
+    /*}*/
+/*}*/
 
 body {
     background-image: url("../images/web_back_night.png");
     background-repeat: no-repeat;
     background-size: cover;
+    height:100%;
 }
 #chart .c3-line-data1 {
     stroke-width: 5px;
@@ -76,4 +82,15 @@ body {
 }
 #chart3 .c3-line-data1 {
     stroke-width: 5px;
+}
+.row-top{
+    height: 30%;
+}
+.row-bottom{
+    height: 30%;
+    margin:auto;
+}
+.row-middle{
+    height: 30%;
+    margin:auto;
 }

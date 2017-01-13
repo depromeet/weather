@@ -8,7 +8,7 @@ class Header extends Component {
     render() {
         // let de = d3.select("body").append("div").text("새로운 문장");
         return (
-            <div>
+            <div className="row-top">
                 <TempInfo/>
             </div>
         );

@@ -45,31 +45,32 @@ class TempInfo extends Component {
 
         return (
             <div
-                className={styles.TempInform}
+                className="TempInform"
             >
                 <button onClick={this.getGeo}>위치확인 (click!)
                 </button>
-                <h2
-                    className="TempFont"
+                <p
+                    className="col-xs-12 TempFont"
                 >현재 온도
                     <small
                         className="TempNum"
                     >{this.props.current_temp}</small>
-                </h2>
-                <h2
-                    className="TempFont"
+                </p>
+                <p
+                    className="col-xs-12 TempFont"
                 >체감온도
                     <small
                         className="TempNum"
                     >{Math.round(this.props.body_temp)}</small>
-                </h2>
-                <h2
-                    className="TempFont"
+                </p>
+                <p
+
+                    className="col-xs-12 TempFont"
                 >위치
                     <small
                         className="TempNum"
                     >{this.props.location}</small>
-                </h2>
+                </p>
             </div>
         );
     }

@@ -43,19 +43,17 @@ class Content extends Component {
 
     render() {
         return (
-            <div className="weather-inform"
+
+            <div className="row row-bottom"
             >
                 <div
-                    className="weather-box"
+                    className="col-xs-12 col-sm-12 col-md-12 col-lg-12 "
                 >
                     <Carousel
                     >
                         <Carousel.Item
-                            className="row-bottom col-xs-12"
                         >
                             <center>
-
-
                                 <p
                                     className="h3 TempFont"
                                 >오늘날씨</p>
@@ -63,7 +61,6 @@ class Content extends Component {
                             </center>
                         </Carousel.Item>
                         <Carousel.Item
-                            className="col-xs-12"
                         >
                             <center>
                                 <p
@@ -73,7 +70,6 @@ class Content extends Component {
                             </center>
                         </Carousel.Item>
                         <Carousel.Item
-                            className="col-xs-12"
                         >
                             <center>
                                 <p

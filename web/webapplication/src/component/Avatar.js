@@ -57,10 +57,10 @@ class Avatar extends Component {
     render() {
         return (
             <div
-                className="row-middle col-xs-12 "
+                className="row"
             >
                 <div
-                    className="img-container"
+                    className="col-xs-12 col-sm-12 col-md-12 col-lg-12 img-container"
                 >
 
                 <img onClick={this.open} src={imgsrc} className="img-responsive center-block avatarImg" alt="아바타"

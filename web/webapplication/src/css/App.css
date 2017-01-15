@@ -1,5 +1,3 @@
-
-
 .TempFont{
     color:white;
     font-size:12pt;
@@ -23,12 +21,9 @@
     min-height: 100%;
     height: 100%;
 }
-
-
 .weather-box{
     margin: 20px;
 }
-
 .TempNum{
     color: white;
 }
@@ -36,16 +31,12 @@
     margin:auto;
     background-color: black;
 }
-
 body {
-    background-image: url("../images/web_back_night.png");
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+    background: url("../images/web_back_night.png") no-repeat fixed;
     background-size: cover;
     overflow: hidden;
     height:100%;
 }
-
 #chart .c3-line-data1 {
     stroke-width: 5px;
 }
@@ -56,11 +47,19 @@ body {
     stroke-width: 5px;
 }
 .row-top{
-    height: 30%;
+    height: 100%;
 }
 .row-bottom{
-    margin-top: 20px;
-    margin-bottom:0 !important;
+    position: absolute;
+    bottom: 0;
+    width:100%;
+
+    padding-left:0;
+    padding-right:0;
+}
+.row-bottom > div{
+    padding-left: 0;
+    padding-right:0;
 }
 .row-middle{
     height: 30%;

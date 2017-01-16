@@ -1,6 +1,14 @@
+p{
+    color: white;
+}
+.innerWeather{
+    z-index: +1;
+}
 .TempFont{
-    color:white;
+    opacity:1;
+    color:white !important;
     font-size:12pt;
+    z-index: 1;
 }
 
 .avatarImg{
@@ -27,9 +35,10 @@
 .TempNum{
     color: white;
 }
+
 .carousel-weather {
     margin:auto;
-    background-color: black;
+
 }
 body {
     background: url("../images/web_back_night.png") no-repeat fixed;
@@ -38,7 +47,7 @@ body {
     height:100%;
 }
 #chart .c3-line-data1 {
-    stroke-width: 5px;
+    stroke-width: 10px;
 }
 #chart2 .c3-line-data1 {
     stroke-width: 5px;
@@ -53,9 +62,11 @@ body {
     position: absolute;
     bottom: 0;
     width:100%;
-
+    background-color: rgba(0,0,0,0.3);
     padding-left:0;
     padding-right:0;
+    z-index: -2;
+    max-height:40%;
 }
 .row-bottom > div{
     padding-left: 0;

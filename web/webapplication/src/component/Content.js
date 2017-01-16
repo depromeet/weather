@@ -14,6 +14,11 @@ class Content extends Component {
     _renderChart() {
         c3.generate({
             bindto: '#chart',
+            size:{
+                height:300
+
+            },
+
 
             data: {
                 columns: [
@@ -43,11 +48,10 @@ class Content extends Component {
 
     render() {
         return (
-
             <div className="row row-bottom"
             >
                 <div
-                    className="col-xs-12 col-sm-12 col-md-12 col-lg-12 "
+                    className="col-xs-12 col-sm-12 col-md-12 col-lg-12 innerWeather"
                 >
                     <Carousel
                     >

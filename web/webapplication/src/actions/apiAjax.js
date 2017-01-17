@@ -41,3 +41,29 @@ export const get_current_weather = (latitude) => {
         })
     }
 };
+
+export const get_weekend_weather = (latitude) =>{
+    "use strict";
+    return (dispatch) => {
+        $.ajax({
+            url: apiconfig.mediumrangeforceast,
+            type:'GET',
+            // version={version}&lat={lat}&lon={lon}&city={city}&county={county}&village={village}&foretxt={foretxt}
+            data:{
+                version:apiconfig.version,
+                lat: latitude,
+                lon: ' 126.9658000000',
+                city:'서울',
+                stnid:"108",
+            },
+            success: function (res) {
+                console.log('응답');
+                console.log(res);
+            },
+            error: function (request, status, error) {
+                console.log('error');
+                console.log(request, status, error)
+            }
+        })
+    }
+};

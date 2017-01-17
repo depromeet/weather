@@ -7,7 +7,7 @@ import * as api from '../actions/apiAjax';
 import styles from '../css/App.css'
 
 class TempInfo extends Component {
-    
+
     constructor(props){
         super(props);
         this.getGeo = this.getGeo.bind(this);

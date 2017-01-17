@@ -42,12 +42,12 @@ p{
 }
 body {
     background: url("../images/web_back_night.png") no-repeat fixed;
-    background-size: cover;
+    background-size: 100% 100%;
     overflow: hidden;
     height:100%;
 }
 #chart .c3-line-data1 {
-    stroke-width: 10px;
+    stroke-width: 5px;
 }
 #chart2 .c3-line-data1 {
     stroke-width: 5px;

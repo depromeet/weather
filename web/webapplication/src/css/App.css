@@ -1,30 +1,15 @@
 p{
     color: white;
 }
-.innerWeather{
-    z-index: +1;
-}
 .TempFont{
     opacity:1;
     color:white !important;
-    font-size:12pt;
-    z-index: 1;
 }
 
-.avatarImg{
-    width:30%;
-}
 .avatarImg:hover {
     border: solid black;
     cursor: pointer;
 }
-/*@media (min-width: 700px) {*/
-    /*.TempInform > p {*/
-        /*font-size: 24pt;*/
-        /*color:white;*/
-    /*}*/
-/*}*/
-
 .fill-height {
     min-height: 100%;
     height: 100%;
@@ -49,11 +34,20 @@ body {
 #chart .c3-line-data1 {
     stroke-width: 5px;
 }
+#chart > svg {
+    height:300px
+}
 #chart2 .c3-line-data1 {
     stroke-width: 5px;
 }
+#chart2 > svg {
+    height:300px
+}
 #chart3 .c3-line-data1 {
     stroke-width: 5px;
+}
+#chart3 > svg {
+    height:300px
 }
 .row-top{
     height: 100%;
@@ -75,4 +69,48 @@ body {
 .row-middle{
     height: 30%;
     margin:auto;
+}
+
+.avatarImg{
+    width:30%;
+}
+
+@media (min-width: 1200px){
+    .TempFont{
+        font-size: 40px;
+    }
+    .avatarImg{
+        width:15%;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px){
+    .TempFont{
+        font-size: 40px;
+    }
+    .avatarImg{
+        width:15%;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .TempFont{
+        font-size: 40px;
+    }
+}
+
+@media (max-width:767px){
+    .TempFont{
+        font-size: 20pt;
+    }
+    .avatarImg{
+        width:28%;
+    }
+}
+@media (max-width: 480px) {
+    .TempFont{
+        font-size: 16pt;
+    }
+    .avatarImg{
+        width:50%;
+    }
 }

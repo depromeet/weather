@@ -14,19 +14,15 @@ class Content extends Component {
     _renderChart() {
         c3.generate({
             bindto: '#chart',
-            size:{
-                height:300
-
-            },
-
-
+            // size:{
+            //     height:300
+            // },
             data: {
                 columns: [
                     ['data1', 15, 25, 32, 10, 11]
                 ]
             },
         });
-
         c3.generate({
             bindto: '#chart2',
             data: {

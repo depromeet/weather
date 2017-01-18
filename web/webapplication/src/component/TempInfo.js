@@ -47,8 +47,8 @@ class TempInfo extends Component {
             <div
                 className="TempInform"
             >
-                <button onClick={this.getGeo}>위치확인 (click!)
-                </button>
+                {/*<button onClick={this.getGeo}>위치확인 (click!)*/}
+                {/*</button>*/}
                 <p
                     className="col-xs-12 TempFont"
                 >현재 온도

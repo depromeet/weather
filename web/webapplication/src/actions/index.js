@@ -17,3 +17,15 @@ export function showWeather(res) {
         body_temp: 13.12 + 0.6215 * res.weather.minutely[0]['temperature'].tc - 11.37 * V + 0.3965 * V * res.weather.minutely[0]['temperature'].tc
     }
 }
+
+export function showMidWeather(res) {
+    res = res.weather.forecast6days[0];
+    return {
+        type:"showMidWeather",
+        grid:res.grid,
+        location:res.location,
+        sky:res.sky,
+        temperature:res.temperature,
+        timeRelease:res.timeRelease
+    }
+}

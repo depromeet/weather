@@ -74,6 +74,9 @@ body {
 .avatarImg{
     width:30%;
 }
+.thisWeekendWeather{
+    display: inline-block;
+}
 
 @media (min-width: 1200px){
     .TempFont{

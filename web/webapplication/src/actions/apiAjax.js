@@ -11,7 +11,8 @@ $.ajaxSetup({
     }
 });
 
-export const get_current_weather = (latitude) => {
+export const get_current_weather = (latitude, longitude) => {
+    "use strict";
     return (dispatch) => {
         $.ajax({
             url: apiconfig.minute,
@@ -21,8 +22,8 @@ export const get_current_weather = (latitude) => {
                 //API 버전 정보
                 version: apiconfig.version,
                 //위도로 날씨정보 검색
-                // lat: "37.5714000000",
                 lat: latitude,
+                lon: longitude,
                 //주소로 날씨정보 검색
                 // -시(특별, 광역), 도
                 city: "서울",
@@ -42,7 +43,7 @@ export const get_current_weather = (latitude) => {
     }
 };
 
-export const get_weekend_weather = (latitude) =>{
+export const get_weekend_weather = (latitude,longitude) =>{
     "use strict";
     return (dispatch) => {
         $.ajax({
@@ -52,13 +53,14 @@ export const get_weekend_weather = (latitude) =>{
             data:{
                 version:apiconfig.version,
                 lat: latitude,
-                lon: ' 126.9658000000',
+                lon: longitude,
                 city:'서울',
                 stnid:"108",
             },
+
             success: function (res) {
-                console.log('응답');
-                console.log(res);
+                console.log('이번주 응답', res);
+                dispatch(actions.showMidWeather(res))
             },
             error: function (request, status, error) {
                 console.log('error');

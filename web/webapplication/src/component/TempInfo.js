@@ -14,12 +14,9 @@ class TempInfo extends Component {
     }
     
     componentWillMount() {
-        //마운트되면 ajax호출
-        this.props.getCurrentWeather();
     }
 
     componentDidMount() {
-        console.log('wwww');
         //tobe 60초에 한번씩 호출 추후에 수정예정
         //개발시 주석처리.
         // setInterval(this.props.getCurrentWeather,60*1000);
@@ -37,7 +34,7 @@ class TempInfo extends Component {
         //     console.log("Key 값:" + property + " 정보:" + position.coords[property]);
         // }
         console.log(position);
-        this.props.getCurrentWeather(position.coords['latitude']);
+        this.props.getCurrentWeather(position.coords['latitude'],position.coords['longitude']);
     }
     render() {
         const now = new Date();
@@ -85,8 +82,8 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
     return {
-        getCurrentWeather: (latitude ) => {
-            dispatch(api.get_current_weather(latitude))
+        getCurrentWeather: (latitude, long ) => {
+            dispatch(api.get_current_weather(latitude, long))
         }
     }
 };

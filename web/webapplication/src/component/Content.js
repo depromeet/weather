@@ -76,7 +76,72 @@ class Content extends Component {
 
     render() {
         console.log('Content: this.props', this.props);
-
+        Object.assign(this.props.thisWeekend.sky, this.props.thisWeekend.temperature);
+        console.log('...this.props.thisWeekend.sky', this.props.thisWeekend.sky);
+        let day = new Map();
+        let dayArray = [];
+        const getArray = () => {
+            this.props.thisWeekend.sky &&
+            Object.keys(this.props.thisWeekend.sky).map((val, i) => {
+                    if (!this.props.thisWeekend.sky[val].startsWith('SKY')) {
+                        if (val.endsWith('2day')) {
+                            console.log('endswidths 2day', this.props.thisWeekend.sky[val]);
+                            dayArray.concat(["2day",this.props.thisWeekend.sky[val]]);
+                            day.set(dayArray);
+                            console.log('day', day)
+                        }
+                        else if (val.endsWith('3day')) {
+                            console.log('endswidths 3day', this.props.thisWeekend.sky[val]);
+                            let dayArray = ["3day",this.props.thisWeekend.sky[val]];
+                            day.set(dayArray);
+                            console.log('day', day)
+                        }
+                        else if (val.endsWith('4day')) {
+                            console.log('endswidths 4day', this.props.thisWeekend.sky[val])
+                            let dayArray = ["4day",this.props.thisWeekend.sky[val]];
+                            day.set(dayArray);
+                            console.log('day', day)
+                        }
+                        else if (val.endsWith('5day')) {
+                            console.log('endswidths 5day', this.props.thisWeekend.sky[val])
+                            let dayArray = ["5day",this.props.thisWeekend.sky[val]];
+                            day.set(dayArray);
+                            console.log('day', day)
+                        }
+                        else if (val.endsWith('6day')) {
+                            console.log('endswidths 6day', this.props.thisWeekend.sky[val])
+                            let dayArray = ["6day",this.props.thisWeekend.sky[val]];
+                            day.set(dayArray);
+                            console.log('day', day)
+                        }
+                        else if (val.endsWith('7day')) {
+                            console.log('endswidths 7day', this.props.thisWeekend.sky[val])
+                            let dayArray = ["7day",this.props.thisWeekend.sky[val]];
+                            day.set(dayArray);
+                            console.log('day', day)
+                        }
+                        else if (val.endsWith('8day')) {
+                            console.log('endswidths 8day', this.props.thisWeekend.sky[val])
+                            let dayArray = ["8day",this.props.thisWeekend.sky[val]];
+                            day.set(dayArray);
+                            console.log('day', day)
+                        }
+                        else if (val.endsWith('9day')) {
+                            console.log('endswidths 9day', this.props.thisWeekend.sky[val])
+                            let dayArray = ["9day",this.props.thisWeekend.sky[val]];
+                            day.set(dayArray);
+                            console.log('day', day)
+                        }
+                        else if (val.endsWith('10day')) {
+                            console.log('endswidths 10day', this.props.thisWeekend.sky[val])
+                            let dayArray = ["10day",this.props.thisWeekend.sky[val]];
+                            day.set(dayArray);
+                            console.log('day', day)
+                        }
+                    }
+                }
+            )
+        };
         return (
             <div className="row row-bottom"
             >
@@ -84,7 +149,9 @@ class Content extends Component {
                     className="col-xs-12 col-sm-12 col-md-12 col-lg-12 innerWeather"
                 >
                     <Carousel
+
                     >
+                        {getArray()}
                         <Carousel.Item
                         >
                             <center>
@@ -94,28 +161,29 @@ class Content extends Component {
                                 <div className="carousel-weather" id="chart"></div>
                             </center>
                         </Carousel.Item>
-                        <Carousel.Item
-                        >
+                        <Carousel.Item>
                             <center>
                                 <p
                                     className="h3 TempFont"
                                 >주간 날씨</p>
-                                {/*<div className="carousel-weather" id="chart2"></div>*/}
-                                <div>
-                                    <div
-                                        className="thisWeekendWeather"
-                                    >
-                                        {
-
-                                            this.props.thisWeekend.sky &&
-                                            Object.keys(this.props.thisWeekend.sky).map( (val, i) => {
-                                                console.log(this.props.thisWeekend.sky[val]);
-                                                if(!this.props.thisWeekend.sky[val].startsWith('SKY')) {
-                                                    return this.props.thisWeekend.sky[val]
+                                <div className="thisWeekendWeather">
+                                    {
+                                        this.props.thisWeekend.sky &&
+                                        Object.keys(this.props.thisWeekend.sky).map((val, i) => {
+                                                console.log('this.props.thisWeekend.sky[val]', this.props.thisWeekend.sky[val]);
+                                                if (!this.props.thisWeekend.sky[val].startsWith('SKY')) {
+                                                    if (val.startsWith('am')) {
+                                                        return <div
+                                                            key={val}
+                                                            className="inner-thisWeekendWeather col-sm-2"
+                                                        >
+                                                            {this.props.thisWeekend.sky[val]}
+                                                        </div>
+                                                    }
                                                 }
-                                            })
-                                        }
-                                    </div>
+                                            }
+                                        )
+                                    }
                                 </div>
                             </center>
                         </Carousel.Item>

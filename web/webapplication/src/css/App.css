@@ -75,8 +75,18 @@ body {
     width:30%;
 }
 .thisWeekendWeather{
-    display: inline-block;
+    display: block;
 }
+.inner-thisWeekendWeather{
+    display:inline-block;
+    border:solid black;
+    min-height: 300px;
+    width: 9%;
+}
+.carousel-control{
+    width:5% !important;
+ }
+
 
 @media (min-width: 1200px){
     .TempFont{

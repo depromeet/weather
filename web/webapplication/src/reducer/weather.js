@@ -16,6 +16,8 @@ const initialState = {
 
     //체감온도
     body_temp: '통신에러',
+    //관측시간
+    timeObservation:'통신에러',
 
     thisWeekend: {
         grid: '통신에러',
@@ -23,6 +25,17 @@ const initialState = {
         sky: '',
         temperature: '통신에러',
         timeRelease: '통신에러',
+    },
+    show3dayWeather: {
+        //위치정보
+        grid:'통신에러',
+        //발표시간
+        timeRelease:'통신에러',
+        //3시간 간격으로 온도, 하늘상태, 습도, 강수량, 풍향, 풍속 확인
+        fcst3hour:'통신에러',
+        //6시간 간격으로 눈/비 확인
+        fcst6hour:'통신에러',
+        fcstdaily:'통신에러',
     }
 };
 
@@ -34,8 +47,8 @@ export default function weather(state = initialState, action) {
                 current_temp: action.current_temp,
                 location: action.location,
                 wind: action.wind,
-                body_temp: action.body_temp
-
+                body_temp: action.body_temp,
+                timeObservation:action.timeObservation
             };
         case 'showMidWeather':
             return update(state, {
@@ -45,6 +58,20 @@ export default function weather(state = initialState, action) {
                     sky:{$set: action.sky},
                     temperature:{$set: action.temperature},
                     timeRelease:{$set:action.timeRelease},
+                }
+            });
+        case 'show3dayWeather':
+            return update(state, {
+                show3dayWeather: {
+                    //위치정보
+                    grid:{$set:action.grid},
+                    //발표시간
+                    timeRelease:{$set:action.timeRelease},
+                    //3시간 간격으로 온도, 하늘상태, 습도, 강수량, 풍향, 풍속 확인
+                    fcst3hour:{$set:action.fcst3hour},
+                    //6시간 간격으로 눈/비 확인
+                    fcst6hour:{$set:action.fcst6hour},
+                    fcstdaily:{$set:action.fcstdaily},
                 }
             });
         default:

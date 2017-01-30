@@ -8,10 +8,7 @@ import * as api from '../actions/apiAjax';
 
 class TempInfo extends Component {
 
-    constructor(props){
-        super(props);
-        this.getGeo = this.getGeo.bind(this);
-    }
+
     
     componentWillMount() {
     }
@@ -22,20 +19,28 @@ class TempInfo extends Component {
         // setInterval(this.props.getCurrentWeather,60*1000);
         this.getGeo()
     }
-
     getGeo() {
         navigator.geolocation.getCurrentPosition((position)=>{
-            this.succes(position);
+            console.log("위치정보 확인 성공! ", position);
+            this.geo_succes(position);
+        },(error) =>{
+            console.log("위치정보 확인 실패!", error);
+            this.geo_error(error);
         }); //현재 위치 정보를 조사하고 성공 실패 했을시 호출되는 함수 설정
-        console.log("위치정보 확인 성공!");
+
     }
-    succes(position){
+    geo_succes(position){
         // for (let property in position.coords) { //반복문 돌면서 출력
         //     console.log("Key 값:" + property + " 정보:" + position.coords[property]);
         // }
-        console.log(position);
         this.props.getCurrentWeather(position.coords['latitude'],position.coords['longitude']);
     }
+    geo_error(error){
+        // 위치정보 제공 거부시 기본적으로 서울 로 표시되게한다.
+        this.props.getCurrentWeather(37.5714000000	,126.9658000000);
+    }
+
+
     render() {
         const now = new Date();
         console.log(now);
@@ -68,6 +73,14 @@ class TempInfo extends Component {
                         className="TempNum"
                     >{this.props.location}</small>
                 </p>
+                <p
+                    className="col-xs-12 TempFont"
+                >
+                    관측시간
+                    <small>
+                    {this.props.timeObservation}
+                    </small>
+                </p>
             </div>
         );
     }
@@ -78,6 +91,7 @@ const mapStateToProps = (state) => {
         current_wind: state.weather.current_temp,
         location: state.weather.location,
         body_temp: state.weather.body_temp,
+        timeObservation : state.weather.timeObservation
     };
 };
 const mapDispatchToProps = (dispatch) => {

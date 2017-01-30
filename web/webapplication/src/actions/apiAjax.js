@@ -14,7 +14,7 @@ $.ajaxSetup({
 export const get_current_weather = (latitude, longitude) => {
     return (dispatch) => {
         $.ajax({
-            url: apiconfig.minute,
+            url: 'http://apis.skplanetx.com/weather/current/minutely',
             type: 'GET',
             data: {
                 //예시 데이터
@@ -31,12 +31,11 @@ export const get_current_weather = (latitude, longitude) => {
                 //tobe appkey가 노출되어있음. 다른방식으로세팅해야할듯.
             },
             success: function (res) {
-                console.log('응답', res);
-                console.log('요청 위치', res.weather.minutely[0]['station']['name']);
-                console.log('현재기온', res.weather.minutely[0]['temperature'].tc);
-                console.log('현재풍속', res.weather.minutely[0]['wind'].wspd);
-                // console.log(V, bodyTemp,'wwwwwwwwwwwwwwwwwffff');
+                console.log('현재시간 응답', res);
                 dispatch(actions.showWeather(res))
+            },
+            error: function (request, status, error) {
+                console.log('현재시간 응답 error',request, status, error);
             }
         })
     }
@@ -45,9 +44,8 @@ export const get_current_weather = (latitude, longitude) => {
 export const get_weekend_weather = (latitude,longitude) =>{
     return (dispatch) => {
         $.ajax({
-            url: apiconfig.mediumrangeforceast,
+            url: 'http://apis.skplanetx.com/weather/forecast/6days',
             type:'GET',
-            // version={version}&lat={lat}&lon={lon}&city={city}&county={county}&village={village}&foretxt={foretxt}
             data:{
                 version:apiconfig.version,
                 lat: latitude,
@@ -61,8 +59,30 @@ export const get_weekend_weather = (latitude,longitude) =>{
                 dispatch(actions.showMidWeather(res))
             },
             error: function (request, status, error) {
-                console.log('error');
-                console.log(request, status, error)
+                console.log('이번주 응답 error',request, status, error);
+            }
+        })
+    }
+};
+
+export const get_3day_weather = (latitude,longitude) =>{
+    return (dispatch) => {
+        $.ajax({
+            url: 'http://apis.skplanetx.com/weather/forecast/3days',
+            type:'GET',
+            data:{
+                version:apiconfig.version,
+                lat: latitude,
+                lon: longitude,
+                city:'서울',
+                stnid:"108",
+            },
+            success: function (res) {
+                console.log('3day 응답', res);
+                dispatch(actions.show3dayWeather(res))
+            },
+            error: function (request, status, error) {
+                console.log('3day 응답 error',request, status, error);
             }
         })
     }

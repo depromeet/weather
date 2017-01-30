@@ -137,12 +137,12 @@ class Content extends Component {
             }
         };
 
-        const dayParse = (day) => {
-            [...day.entries()].map((val, i)=> (
+        const dayParse = (day) => (
+            [...day.entries()].map((val, i) => {
                 console.log(`key = ${val}, value = ${i}`);
                 return <li>{val}, {i}</li>
-            ))
-        };
+            })
+        );
         return (
             <div className="row row-bottom"
             >
@@ -179,27 +179,42 @@ class Content extends Component {
                                     <div
                                         className="col-sm-2"
                                     >
-                                        3째날
+                                        {
+                                            day3.size &&
+                                            dayParse(day3)
+                                        }
                                     </div>
                                     <div
                                         className="col-sm-2"
                                     >
-                                        4째날
+                                        {
+                                            day4.size &&
+                                            dayParse(day4)
+                                        }
                                     </div>
                                     <div
                                         className="col-sm-2"
                                     >
-                                        5째날
+                                        {
+                                            day5.size &&
+                                            dayParse(day5)
+                                        }
                                     </div>
                                     <div
                                         className="col-sm-2"
                                     >
-                                        6째날
+                                        {
+                                            day6.size &&
+                                            dayParse(day6)
+                                        }
                                     </div>
                                     <div
                                         className="col-sm-2"
                                     >
-                                        7째날
+                                        {
+                                            day7.size &&
+                                            dayParse(day7)
+                                        }
                                     </div>
                                 </div>
                             </center>

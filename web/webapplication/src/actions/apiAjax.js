@@ -12,7 +12,6 @@ $.ajaxSetup({
 });
 
 export const get_current_weather = (latitude, longitude) => {
-    "use strict";
     return (dispatch) => {
         $.ajax({
             url: apiconfig.minute,
@@ -44,7 +43,6 @@ export const get_current_weather = (latitude, longitude) => {
 };
 
 export const get_weekend_weather = (latitude,longitude) =>{
-    "use strict";
     return (dispatch) => {
         $.ajax({
             url: apiconfig.mediumrangeforceast,

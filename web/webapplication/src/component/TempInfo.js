@@ -4,7 +4,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as api from '../actions/apiAjax';
-import styles from '../css/App.css'
+// import styles from '../css/App.css'
 
 class TempInfo extends Component {
 

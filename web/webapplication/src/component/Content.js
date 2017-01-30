@@ -79,68 +79,73 @@ class Content extends Component {
         Object.assign(this.props.thisWeekend.sky, this.props.thisWeekend.temperature);
         console.log('...this.props.thisWeekend.sky', this.props.thisWeekend.sky);
         let day = new Map();
-        let dayArray = [];
+        let day2 = [];
         const getArray = () => {
             this.props.thisWeekend.sky &&
             Object.keys(this.props.thisWeekend.sky).map((val, i) => {
                     if (!this.props.thisWeekend.sky[val].startsWith('SKY')) {
                         if (val.endsWith('2day')) {
                             console.log('endswidths 2day', this.props.thisWeekend.sky[val]);
-                            dayArray.concat(["2day",this.props.thisWeekend.sky[val]]);
-                            day.set(dayArray);
-                            console.log('day', day)
+                            if (val.startsWith('am')){
+
+                            }
+                            day2.push(this.props.thisWeekend.sky[val]);
+                            // console.log('day', day)
                         }
                         else if (val.endsWith('3day')) {
                             console.log('endswidths 3day', this.props.thisWeekend.sky[val]);
-                            let dayArray = ["3day",this.props.thisWeekend.sky[val]];
+                            let dayArray = ["3day", this.props.thisWeekend.sky[val]];
                             day.set(dayArray);
                             console.log('day', day)
                         }
                         else if (val.endsWith('4day')) {
-                            console.log('endswidths 4day', this.props.thisWeekend.sky[val])
-                            let dayArray = ["4day",this.props.thisWeekend.sky[val]];
+                            console.log('endswidths 4day', this.props.thisWeekend.sky[val]);
+                            let dayArray = ["4day", this.props.thisWeekend.sky[val]];
                             day.set(dayArray);
                             console.log('day', day)
                         }
                         else if (val.endsWith('5day')) {
                             console.log('endswidths 5day', this.props.thisWeekend.sky[val])
-                            let dayArray = ["5day",this.props.thisWeekend.sky[val]];
+                            let dayArray = ["5day", this.props.thisWeekend.sky[val]];
                             day.set(dayArray);
                             console.log('day', day)
                         }
                         else if (val.endsWith('6day')) {
-                            console.log('endswidths 6day', this.props.thisWeekend.sky[val])
-                            let dayArray = ["6day",this.props.thisWeekend.sky[val]];
+                            console.log('endswidths 6day', this.props.thisWeekend.sky[val]);
+                            let dayArray = ["6day", this.props.thisWeekend.sky[val]];
                             day.set(dayArray);
                             console.log('day', day)
                         }
                         else if (val.endsWith('7day')) {
-                            console.log('endswidths 7day', this.props.thisWeekend.sky[val])
-                            let dayArray = ["7day",this.props.thisWeekend.sky[val]];
+                            console.log('endswidths 7day', this.props.thisWeekend.sky[val]);
+                            let dayArray = ["7day", this.props.thisWeekend.sky[val]];
                             day.set(dayArray);
                             console.log('day', day)
                         }
                         else if (val.endsWith('8day')) {
-                            console.log('endswidths 8day', this.props.thisWeekend.sky[val])
-                            let dayArray = ["8day",this.props.thisWeekend.sky[val]];
+                            console.log('endswidths 8day', this.props.thisWeekend.sky[val]);
+                            let dayArray = ["8day", this.props.thisWeekend.sky[val]];
                             day.set(dayArray);
                             console.log('day', day)
                         }
                         else if (val.endsWith('9day')) {
-                            console.log('endswidths 9day', this.props.thisWeekend.sky[val])
-                            let dayArray = ["9day",this.props.thisWeekend.sky[val]];
+                            console.log('endswidths 9day', this.props.thisWeekend.sky[val]);
+                            let dayArray = ["9day", this.props.thisWeekend.sky[val]];
                             day.set(dayArray);
                             console.log('day', day)
                         }
                         else if (val.endsWith('10day')) {
-                            console.log('endswidths 10day', this.props.thisWeekend.sky[val])
-                            let dayArray = ["10day",this.props.thisWeekend.sky[val]];
+                            console.log('endswidths 10day', this.props.thisWeekend.sky[val]);
+                            let dayArray = ["10day", this.props.thisWeekend.sky[val]];
                             day.set(dayArray);
                             console.log('day', day)
                         }
                     }
                 }
-            )
+            );
+            day.set('day2',day2);
+            console.log('day2', day2);
+            console.log(day);
         };
         return (
             <div className="row row-bottom"
@@ -172,7 +177,7 @@ class Content extends Component {
                                         Object.keys(this.props.thisWeekend.sky).map((val, i) => {
                                                 console.log('this.props.thisWeekend.sky[val]', this.props.thisWeekend.sky[val]);
                                                 if (!this.props.thisWeekend.sky[val].startsWith('SKY')) {
-                                                    if (val.startsWith('am')) {
+                                                    if (val.endsWith('2day')) {
                                                         return <div
                                                             key={val}
                                                             className="inner-thisWeekendWeather col-sm-2"

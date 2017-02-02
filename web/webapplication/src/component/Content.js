@@ -6,7 +6,7 @@ import {Carousel} from 'react-bootstrap'
 import {connect} from 'react-redux';
 import * as api from '../actions/apiAjax';
 import * as c3 from 'c3';
-import {ThisWeekendWeather} from './ThisWeekendWeather'
+import ThisWeekendWeather from './ThisWeekendWeather'
 import TodayWeather from './TodayWeather'
 
 
@@ -69,21 +69,27 @@ class Content extends Component {
     }
 
     render() {
-        console.log('this.props.show3dayWeather', this.props.show3dayWeather)
+        console.log('this.props.show3dayWeather', this.props);
+
         return (
             <div className="row row-bottom"
             >
                 <div
-                    className="col-xs-12 col-sm-12 col-md-12 col-lg-12 innerWeather"
+                    className="innerWeather"
                 >
-                    <Carousel>
+                    <Carousel
+                        pauseOnHover={true}
+                    >
                         <Carousel.Item>
                             <TodayWeather
                                 show3dayWeather={this.props.show3dayWeather}
                             />
                         </Carousel.Item>
                         <Carousel.Item>
-                            {ThisWeekendWeather(this.props.thisWeekend.sky, this.props.thisWeekend.temperature)}
+                            <ThisWeekendWeather
+                                thisWeekend={this.props.thisWeekend}
+                            />
+
                         </Carousel.Item>
                         {/*<Carousel.Item*/}
                         {/*>*/}

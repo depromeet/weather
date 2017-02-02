@@ -6,75 +6,85 @@ import React, {Component}  from 'react';
 
 class TodayWeather extends Component {
 
-    render() {
+    constructor(props) {
+        super(props);
 
-        const {show3dayWeather} = this.props
-        const {sky} = show3dayWeather.fcst3hour
-        const {temperature} = show3dayWeather.fcst3hour
-        if (typeof sky != 'undefined' && typeof temperature != 'undefined') {
-            Object.assign(sky, temperature);
-            getArray()
-        }
-        let day2 = new Map();
-        let day3 = new Map();
-        let day4 = new Map();
-        let day5 = new Map();
-        let day6 = new Map();
-        let day7 = new Map();
-        let day8 = new Map();
-        let day9 = new Map();
-        let day10 = new Map();
+    }
+
+    render() {
+        const {show3dayWeather} = this.props;
+        const {sky} = show3dayWeather.fcst3hour;
+        const {temperature} = show3dayWeather.fcst3hour;
+        const hour4 = new Map();
+        const hour7 = new Map();
+        const hour10 = new Map();
+        const hour13 = new Map();
+        const hour16 = new Map();
+        const hour19 = new Map();
+        const hour22 = new Map();
+        const hourArray = [];
         const getArray = () => {
             sky &&
             Object.keys(sky).forEach(weather => {
                     if (!sky[weather].startsWith('SKY')) {
-                        if (weather.endsWith('2day')) {
-                            day2.set(weather, sky[weather])
+                        if (weather.endsWith('e4hour') || weather.endsWith('p4hour')) {
+                            hour4.set(weather, sky[weather])
                         }
-                        else if (weather.endsWith('3day')) {
-                            day3.set(weather, sky[weather])
+                        else if (weather.endsWith('e7hour') || weather.endsWith('p7hour')) {
+                            hour7.set(weather, sky[weather])
                         }
-                        else if (weather.endsWith('4day')) {
-                            day4.set(weather, sky[weather])
+                        else if (weather.endsWith('10hour')) {
+                            hour10.set(weather, sky[weather])
                         }
-                        else if (weather.endsWith('5day')) {
-                            day5.set(weather, sky[weather])
+                        else if (weather.endsWith('13hour')) {
+                            hour13.set(weather, sky[weather])
                         }
-                        else if (weather.endsWith('6day')) {
-                            day6.set(weather, sky[weather])
+                        else if (weather.endsWith('16hour')) {
+                            hour16.set(weather, sky[weather])
                         }
-                        else if (weather.endsWith('7day')) {
-                            day7.set(weather, sky[weather])
-                        }
-                        else if (weather.endsWith('8day')) {
-                            day8.set(weather, sky[weather])
-                        }
-                        else if (weather.endsWith('9day')) {
-                            day9.set(weather, sky[weather])
-                        }
-                        else if (weather.endsWith('10day')) {
-                            day10.set(weather, sky[weather])
+                        else if (weather.endsWith('19hour')) {
+                            hour19.set(weather, sky[weather])
                         }
                     }
                 }
             );
+            hourArray.push(hour4);
+            hourArray.push(hour7);
+            hourArray.push(hour10);
+            hourArray.push(hour13);
+            hourArray.push(hour16);
+            hourArray.push(hour19);
+            hourArray.push(hour22);
         };
-        console.log('show3dayWeather', show3dayWeather)
-        console.log('sky', sky)
-        console.log('temperature', temperature)
+        if (typeof sky !== 'undefined' && typeof temperature !== 'undefined') {
+            Object.assign(sky, temperature);
+            getArray()
+        }
+        const hourParse = (hour) => (
+            [...hour.entries()].map((val, i) => {
+                return <li
+                    key={val.toString()}
+                    className="TempFont-weather"
+                >{val}, {i}</li>
+            })
+        );
         return (
             <div>
                 <center>
                     <p
                         className="h3 TempFont"
                     >오늘날씨</p>
-                    <div className="carousel-weather" id="chart"></div>
+                    {
+                        hourArray &&
+                        hourArray.map((val, i) => (
+                            <div className="col-sm-3 col-xs-3">
+                                {hourParse(val)}
+                            </div>
+                        ))
+                    }
                 </center>
             </div>
         );
     }
 }
-
-
 export default TodayWeather;
-

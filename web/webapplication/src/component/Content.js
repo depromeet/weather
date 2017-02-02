@@ -7,6 +7,7 @@ import {connect} from 'react-redux';
 import * as api from '../actions/apiAjax';
 import * as c3 from 'c3';
 import {ThisWeekendWeather} from './ThisWeekendWeather'
+import TodayWeather from './TodayWeather'
 
 
 class Content extends Component {
@@ -24,37 +25,38 @@ class Content extends Component {
     }
 
     getGeo() {
-        navigator.geolocation.getCurrentPosition((position)=>{
+        navigator.geolocation.getCurrentPosition((position) => {
             console.log("위치정보 확인 성공! ", position);
             this.geo_succes(position);
-        },(error) =>{
+        }, (error) => {
             console.log("위치정보 확인 실패!", error);
             this.geo_error(error);
         }); //현재 위치 정보를 조사하고 성공 실패 했을시 호출되는 함수 설정
     }
 
-    geo_succes(position){
-        this.props.get_weekend_weather(position.coords['latitude'],position.coords['longitude']);
-        this.props.get_3day_weather(position.coords['latitude'],position.coords['longitude']);
+    geo_succes(position) {
+        this.props.get_weekend_weather(position.coords['latitude'], position.coords['longitude']);
+        this.props.get_3day_weather(position.coords['latitude'], position.coords['longitude']);
     }
-    geo_error(error){
+
+    geo_error(error) {
         // 위치정보 제공 거부시 기본적으로 서울 로 표시되게한다.
-        this.props.get_weekend_weather(37.5714000000	,126.9658000000);
-        this.props.get_3day_weather(37.5714000000	,126.9658000000);
+        this.props.get_weekend_weather(37.5714000000, 126.9658000000);
+        this.props.get_3day_weather(37.5714000000, 126.9658000000);
     }
 
     _renderChart() {
-        c3.generate({
-            bindto: '#chart',
-            // size:{
-            //     height:300
-            // },
-            data: {
-                columns: [
-                    ['data1', 15, 25, 32, 10, 11]
-                ]
-            },
-        });
+        // c3.generate({
+        //     bindto: '#chart',
+        //     // size:{
+        //     //     height:300
+        //     // },
+        //     data: {
+        //         columns: [
+        //             ['data1', 15, 25, 32, 10, 11]
+        //         ]
+        //     },
+        // });
         c3.generate({
             bindto: '#chart3',
             data: {
@@ -67,39 +69,31 @@ class Content extends Component {
     }
 
     render() {
-
+        console.log('this.props.show3dayWeather', this.props.show3dayWeather)
         return (
             <div className="row row-bottom"
             >
                 <div
                     className="col-xs-12 col-sm-12 col-md-12 col-lg-12 innerWeather"
                 >
-                    <Carousel
-
-                    >
-
-
-                        <Carousel.Item
-                        >
-                            <center>
-                                <p
-                                    className="h3 TempFont"
-                                >오늘날씨</p>
-                                <div className="carousel-weather" id="chart"></div>
-                            </center>
+                    <Carousel>
+                        <Carousel.Item>
+                            <TodayWeather
+                                show3dayWeather={this.props.show3dayWeather}
+                            />
                         </Carousel.Item>
                         <Carousel.Item>
                             {ThisWeekendWeather(this.props.thisWeekend.sky, this.props.thisWeekend.temperature)}
                         </Carousel.Item>
-                        <Carousel.Item
-                        >
-                            <center>
-                                <p
-                                    className="h3 TempFont"
-                                >이번주날씨</p>
-                                <div className="carousel-weather" id="chart3"></div>
-                            </center>
-                        </Carousel.Item>
+                        {/*<Carousel.Item*/}
+                        {/*>*/}
+                        {/*<center>*/}
+                        {/*<p*/}
+                        {/*className="h3 TempFont"*/}
+                        {/*>이번주날씨</p>*/}
+                        {/*<div className="carousel-weather" id="chart3"></div>*/}
+                        {/*</center>*/}
+                        {/*</Carousel.Item>*/}
                     </Carousel>
                 </div>
             </div>
@@ -118,7 +112,7 @@ const mapDispatchToProps = (dispatch) => {
         get_weekend_weather: (latitude, longitude) => {
             dispatch(api.get_weekend_weather(latitude, longitude))
         },
-        getCurrentWeather: (latitude, long ) => {
+        getCurrentWeather: (latitude, long) => {
             dispatch(api.get_current_weather(latitude, long))
         },
         get_3day_weather: (latitude, long) => {

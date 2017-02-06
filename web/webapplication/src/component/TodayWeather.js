@@ -62,10 +62,48 @@ class TodayWeather extends Component {
         }
         const hourParse = (hour) => (
             [...hour.entries()].map((val, i) => {
+                let img_src='';
+                if (val[1] === '맑음') {
+                    img_src = require('../images/weather_fine_color.png');
+                } else if (val[1] === '구름조금') {
+                    img_src=require('../images/some_cloud.png');
+                } else if (val[1] === '구름많음') {
+                    img_src=require('../images/many_cloud.png');
+                } else if (val[1] === '구름많고 비') {
+                    img_src=require('../images/weather_rain.png');
+                } else if (val[1] === '구름많고 눈') {
+                    img_src=require('../images/weather_snow.png');
+                } else if (val[1] === '구름많고 비 또는 눈') {
+                    img_src=require('../images/rain_snow.png');
+                } else if (val[1] === '흐림') {
+                    img_src=require('../images/weather_fadeout.png');
+                } else if (val[1] === '흐리고 비') {
+                    img_src=require('../images/weather_rain.png');
+                } else if (val[1] === '흐리고 눈') {
+                    img_src=require('../images/weather_snow.png');
+                } else if (val[1] === '흐리고 비 또는 눈') {
+                    img_src=require('../images/rain_snow.png');
+                } else if (val[1] === '흐리고 낙뢰') {
+                    img_src=require('../images/thunderstorm.png');
+                } else if (val[1] === '뇌우, 비') {
+                    img_src=require('../images/thunderstorm.png');
+                } else if (val[1] === '뇌우, 눈') {
+                    img_src=require('../images/weather_snow.png');
+                } else if (val[1] === '뇌우, 비 또는') {
+                    img_src=require('../images/weather_rain.png');
+                } else {
+                    //숫자로 된건 넘어간다.
+                    return
+                }
                 return <li
                     key={val.toString()}
                     className="TempFont-weather"
-                >{val}, {i}</li>
+                ><img
+                    src={img_src}
+                    width={150}
+                />
+                    {/*{val[1]}, {i}*/}
+                </li>
             })
         );
         return (
@@ -77,7 +115,7 @@ class TodayWeather extends Component {
                     {
                         hourArray &&
                         hourArray.map((val, i) => (
-                            <div className="col-sm-3 col-xs-3">
+                            <div className="col-sm-4 col-xs-4 col-lg-2 col-md-2">
                                 {hourParse(val)}
                             </div>
                         ))

@@ -47,6 +47,19 @@ export function show3dayWeather(res) {
     }
 }
 
+export function loading() {
+    return {
+        type:"loading",
+    }
+}
+
+export function loadingDone(){
+    "use strict";
+    return {
+        type:"loadingDone",
+    }
+}
+
 // 하늘상태코드명(발표시간+N시간)
 // - SKY_S01: 맑음
 // - SKY_S02: 구름조금

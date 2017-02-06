@@ -13,6 +13,7 @@ $.ajaxSetup({
 
 export const get_current_weather = (latitude, longitude) => {
     return (dispatch) => {
+        dispatch(actions.loading());
         $.ajax({
             url: 'http://apis.skplanetx.com/weather/current/minutely',
             type: 'GET',
@@ -32,10 +33,12 @@ export const get_current_weather = (latitude, longitude) => {
             },
             success: function (res) {
                 console.log('현재시간 응답', res);
-                dispatch(actions.showWeather(res))
+                dispatch(actions.showWeather(res)),
+                dispatch(actions.loadingDone());
             },
             error: function (request, status, error) {
                 console.log('현재시간 응답 error',request, status, error);
+                dispatch(actions.loadingDone());
             }
         })
     }
@@ -67,6 +70,7 @@ export const get_weekend_weather = (latitude,longitude) =>{
 
 export const get_3day_weather = (latitude,longitude) =>{
     return (dispatch) => {
+        dispatch(actions.loading());
         $.ajax({
             url: 'http://apis.skplanetx.com/weather/forecast/3days',
             type:'GET',
@@ -79,10 +83,12 @@ export const get_3day_weather = (latitude,longitude) =>{
             },
             success: function (res) {
                 console.log('3day 응답', res);
-                dispatch(actions.show3dayWeather(res))
+                dispatch(actions.show3dayWeather(res));
+                dispatch(actions.loadingDone());
             },
             error: function (request, status, error) {
                 console.log('3day 응답 error',request, status, error);
+                dispatch(actions.loadingDone());
             }
         })
     }

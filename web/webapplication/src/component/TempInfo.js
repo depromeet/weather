@@ -4,6 +4,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as api from '../actions/apiAjax';
+import {FadeLoader} from 'halogen'
 // import styles from '../css/App.css'
 
 class TempInfo extends Component {
@@ -56,14 +57,14 @@ class TempInfo extends Component {
                 >현재 온도
                     <small
                         className="TempNum"
-                    >{this.props.current_temp}</small>
+                    >{this.props.loading =='loading'? <FadeLoader/>:this.props.current_temp}</small>
                 </p>
                 <p
                     className="col-xs-12 TempFont"
                 >체감온도
                     <small
                         className="TempNum"
-                    >{Math.round(this.props.body_temp)}</small>
+                    >{this.props.loading =='loading'? <FadeLoader/>:Math.round(this.props.body_temp)}</small>
                 </p>
                 <p
 
@@ -71,14 +72,14 @@ class TempInfo extends Component {
                 >위치
                     <small
                         className="TempNum"
-                    >{this.props.location}</small>
+                    >{this.props.loading =='loading'? <FadeLoader/>:this.props.location}</small>
                 </p>
                 <p
                     className="col-xs-12 TempFont"
                 >
                     관측시간
                     <small>
-                    {this.props.timeObservation}
+                    {this.props.loading =='loading'? <FadeLoader/>:this.props.timeObservation}
                     </small>
                 </p>
             </div>
@@ -91,7 +92,8 @@ const mapStateToProps = (state) => {
         current_wind: state.weather.current_temp,
         location: state.weather.location,
         body_temp: state.weather.body_temp,
-        timeObservation : state.weather.timeObservation
+        timeObservation : state.weather.timeObservation,
+        loading:state.weather.loading,
     };
 };
 const mapDispatchToProps = (dispatch) => {

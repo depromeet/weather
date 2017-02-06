@@ -89,7 +89,6 @@ class Content extends Component {
                             <ThisWeekendWeather
                                 thisWeekend={this.props.thisWeekend}
                             />
-
                         </Carousel.Item>
                         {/*<Carousel.Item*/}
                         {/*>*/}

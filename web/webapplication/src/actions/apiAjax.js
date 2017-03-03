@@ -93,3 +93,18 @@ export const get_3day_weather = (latitude,longitude) =>{
         })
     }
 };
+
+export const getVote = () =>{
+    return(dispatch) => {
+        $.ajax({
+            url:'http://35.187.196.208/depromeet/count/1',
+            type:'POST',
+            success : function(res){
+                console.log('vote res', res)
+            },
+            error: function(res) {
+                console.log('vote error res', res)
+            }
+        })
+    }
+};

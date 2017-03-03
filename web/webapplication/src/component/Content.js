@@ -15,6 +15,7 @@ class Content extends Component {
 
     componentDidMount() {
         this.getGeo();
+        this.props.getVote();
     };
 
     componentWillReceiveProps(nextProps) {
@@ -72,11 +73,9 @@ class Content extends Component {
         console.log('this.props.show3dayWeather', this.props);
 
         return (
-            <div className="row row-bottom"
+            <div
+                className="row-bottom"
             >
-                <div
-                    className="innerWeather"
-                >
                     <Carousel
                         pauseOnHover={true}
                     >
@@ -90,17 +89,7 @@ class Content extends Component {
                                 thisWeekend={this.props.thisWeekend}
                             />
                         </Carousel.Item>
-                        {/*<Carousel.Item*/}
-                        {/*>*/}
-                        {/*<center>*/}
-                        {/*<p*/}
-                        {/*className="h3 TempFont"*/}
-                        {/*>이번주날씨</p>*/}
-                        {/*<div className="carousel-weather" id="chart3"></div>*/}
-                        {/*</center>*/}
-                        {/*</Carousel.Item>*/}
                     </Carousel>
-                </div>
             </div>
         );
     }
@@ -122,6 +111,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         get_3day_weather: (latitude, long) => {
             dispatch(api.get_3day_weather(latitude, long))
+        },
+        getVote: () => {
+            dispatch(api.getVote())
         }
     }
 };

@@ -54,7 +54,7 @@ class TodayWeather extends Component {
             hourArray.push(hour13);
             hourArray.push(hour16);
             hourArray.push(hour19);
-            hourArray.push(hour22);
+            // hourArray.push(hour22);
         };
         if (typeof sky !== 'undefined' && typeof temperature !== 'undefined') {
             Object.assign(sky, temperature);
@@ -101,11 +101,20 @@ class TodayWeather extends Component {
                 ><img
                     src={img_src}
                     width={150}
+                    className="img-responsive weathersumnail"
                 />
-                    {/*{val[1]}, {i}*/}
+                    <p>{val[1]}</p>
                 </li>
             })
         );
+        const dateParse = (i) => {
+            console.log('iarray', i);
+            const now = new Date();
+            const dd = now.getHours() + (i+1)*3;
+            const parseddate = new Date(now.setHours(dd));
+            return <p>{`${parseddate.getHours()}시`}</p>
+        };
+        console.log('TodayWeather props', this.props);
         return (
             <div>
                 <center>
@@ -115,8 +124,12 @@ class TodayWeather extends Component {
                     {
                         hourArray &&
                         hourArray.map((val, i) => (
-                            <div className="col-sm-4 col-xs-4 col-lg-2 col-md-2">
+                            <div
+                                key={i.toString()}
+                                className="col-sm-4 col-xs-4 col-lg-2 col-md-2"
+                            >
                                 {hourParse(val)}
+                                {dateParse(i)}
                             </div>
                         ))
                     }

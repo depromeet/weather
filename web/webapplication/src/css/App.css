@@ -1,134 +1,191 @@
-p{
+p {
     color: white;
 }
-.TempFont{
-    opacity:1;
-    color:white !important;
+
+.TempFont {
+    opacity: 1;
+    color: white !important;
+    font-size: 7pt;
 }
 
 .avatarImg:hover {
     border: solid black;
     cursor: pointer;
 }
+
 .fill-height {
     min-height: 100%;
     height: 100%;
 }
-.weather-box{
+
+.weather-box {
     margin: 20px;
 }
-.TempNum{
+
+.TempNum {
     color: white;
 }
 
-.carousel-weather {
-    margin:auto;
-
-}
-body {
-    background: url("../images/web_back_night.png") no-repeat fixed;
-    background-size: 100% 100%;
+/*body {*/
+.nightback{
+    background: url("../images/web_back_night.png") no-repeat fixed center;
+    /*background-size: 100% 100%;*/
+    position: absolute;
+    background-size: cover;
+    width: 100%;
+    margin: 0 auto;
     overflow: hidden;
-    height:100%;
+    height: 100%;
 }
+.dayback{
+    background: url("../images/web_back_fine.png") no-repeat fixed center;
+    /*background-size: 100% 100%;*/
+    position: absolute;
+    background-size: cover;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    height: 100%;
+}
+
 #chart .c3-line-data1 {
     stroke-width: 5px;
 }
+
 #chart > svg {
-    height:300px
+    height: 300px
 }
+
 #chart2 .c3-line-data1 {
     stroke-width: 5px;
 }
+
 #chart2 > svg {
-    height:300px
+    height: 300px
 }
+
 #chart3 .c3-line-data1 {
     stroke-width: 5px;
 }
+
 #chart3 > svg {
-    height:300px
-}
-.row-top{
-    height: 100%;
-}
-.row-bottom{
-    position: absolute;
-    bottom: 0;
-    width:100%;
-    background-color: rgba(0,0,0,0.3);
-    padding-left:0;
-    padding-right:0;
-    z-index: -2;
-    max-height:40%;
-}
-.row-bottom > div{
-    padding-left: 0;
-    padding-right:0;
-}
-.row-middle{
-    height: 30%;
-    margin:auto;
+    height: 300px
 }
 
-.avatarImg{
-    width:30%;
+.row-top {
+    height: 100%;
 }
-.thisWeekendWeather{
+
+.TempInform {
+    padding-left: 40pt;
+    padding-top: 40pt;
+}
+
+.row-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: -15px;
+    max-height: 50%;
+}
+
+.row-middle {
+    height: 30%;
+    margin: auto;
+}
+
+.thisWeekendWeather {
     display: block;
 }
-.inner-thisWeekendWeather{
-    display:inline-block;
-    border:solid black;
+
+.inner-thisWeekendWeather {
+    display: inline-block;
+    border: solid black;
     min-height: 300px;
     width: 9%;
 }
-.carousel-control{
-    width:5% !important;
- }
 
+.carousel-control {
+    width: 5% !important;
+}
 
-@media (min-width: 1200px){
-    .TempFont{
+.img-container {
+    /*margin-top: -50px;*/
+}
+
+.avatarImg {
+    width: 30%;
+}
+
+@media (min-width: 1200px) {
+    .TempFont {
         font-size: 40px;
     }
-    .avatarImg{
-        width:15%;
+
+    .avatarImg {
+        width: 15%;
     }
 }
 
-@media (min-width: 992px) and (max-width: 1199px){
-    .TempFont{
+@media (min-width: 992px) and (max-width: 1199px) {
+    .TempFont {
         font-size: 40px;
     }
-    .avatarImg{
-        width:15%;
+
+    .avatarImg {
+        width: 15%;
     }
 }
+
 @media (min-width: 768px) and (max-width: 991px) {
-    .TempFont{
+    .TempFont {
         font-size: 40px;
+    }
+
+    .img-container {
+        margin-top: -50px;
+    }
+    .avatarImg{
+        width:15%;
     }
 }
 
-@media (max-width:767px){
-    .TempFont{
+@media (max-width: 767px) {
+    .TempFont {
         font-size: 20pt;
     }
-    .avatarImg{
-        width:28%;
-    }
+
+    /*.avatarImg{*/
+    /*width:28%;*/
+    /*}*/
 }
+
 @media (max-width: 480px) {
-    .TempFont{
+    .TempFont {
         font-size: 16pt;
     }
-    .avatarImg{
-        width:50%;
-    }
+
+    /*.avatarImg{*/
+    /*width:50%;*/
+    /*}*/
 }
-.TempFont-weather{
+
+.TempFont-weather {
     color: white;
+    margin-bottom: -14px;
 }
-.fine{
+
+li {
+    list-style: none;
+}
+
+.weathersumnail {
+    margin-bottom: -20px;
+}
+
+.big-temp-info {
+    font-size: 60pt;
 }

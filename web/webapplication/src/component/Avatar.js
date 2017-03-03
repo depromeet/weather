@@ -55,14 +55,10 @@ class Avatar extends Component {
     render() {
         return (
             <div
-                className="row"
+                className="col-xs-12 col-sm-12 col-md-12 col-lg-12 img-container"
             >
-                <div
-                    className="col-xs-12 col-sm-12 col-md-12 col-lg-12 img-container"
-                >
                 <img onClick={this.open} src={imgsrc} className="img-responsive center-block avatarImg" alt="아바타"
                 />
-                </div>
                 <Modal show={this.state.showModal} onHide={this.close}>
                     <Modal.Header closeButton>
                         <Modal.Title>투표</Modal.Title>

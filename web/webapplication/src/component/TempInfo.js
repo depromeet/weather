@@ -46,41 +46,55 @@ class TempInfo extends Component {
         const now = new Date();
         console.log(now);
 
+        const month = now.getMonth()+1;
+        const date = now.getDate();
+        const wee = now.getDay();
+        let today = '';
+        if (wee == 0){
+            today = '일'
+        }else if (wee == 1) {
+            today = '월';
+        }else if (wee == 2) {
+            today = '화';
+        }else if (wee ==3 ){
+            today = '수';
+        }else if (wee ==4){
+            today = '목';
+        }else if (wee ==5){
+            today = '금';
+        }else if (wee ==6){
+            today = '토'
+        }
         return (
             <div
                 className="TempInform"
             >
-                {/*<button onClick={this.getGeo}>위치확인 (click!)*/}
-                {/*</button>*/}
                 <p
-                    className="col-xs-12 TempFont"
-                >현재 온도
-                    <small
-                        className="TempNum"
-                    >{this.props.loading =='loading'? <FadeLoader/>:this.props.current_temp}</small>
+                    className="TempFont"
+                >{`${month}월 ${date}일 ${today}요일`}</p>
+                <p
+                    className="TempFont big-temp-info"
+                >
+                    {this.props.loading =='loading'? <FadeLoader/>:this.props.current_temp} ℃
                 </p>
+
                 <p
-                    className="col-xs-12 TempFont"
-                >체감온도
+                    className="TempFont"
+                >체감온도 : &nbsp;
                     <small
                         className="TempNum"
-                    >{this.props.loading =='loading'? <FadeLoader/>:Math.round(this.props.body_temp)}</small>
+                    >{this.props.loading =='loading'? <FadeLoader/>:Math.round(this.props.body_temp)} ℃</small>
+
                 </p>
                 <p
 
-                    className="col-xs-12 TempFont"
-                >위치
+                    className="TempFont"
+                >
                     <small
                         className="TempNum"
-                    >{this.props.loading =='loading'? <FadeLoader/>:this.props.location}</small>
-                </p>
-                <p
-                    className="col-xs-12 TempFont"
-                >
-                    관측시간
-                    <small>
-                    {this.props.loading =='loading'? <FadeLoader/>:this.props.timeObservation}
+                    >{this.props.loading =='loading'? <FadeLoader/>:this.props.location} &nbsp;
                     </small>
+
                 </p>
             </div>
         );
